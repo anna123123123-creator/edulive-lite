@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>讲师后台 · 在线教育直播排课系统（精简开源版）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">直播<span class="accent">课堂</span> 后台</div>
+      <div class="side-link active" data-view="dashboard">仪表盘</div>
+      <div class="side-link" data-view="sessions">课程表管理</div>
+      <div class="side-link" data-view="enrollments">报名管理</div>
+      <div class="side-link" id="btnResetData" style="margin-top:20px;color:var(--red)">重置示例数据</div>
+      <a href="index.html" class="side-link">← 返回前台</a>
+    </aside>
+
+    <main class="admin-main">
+      <section id="view-dashboard" class="admin-view active">
+        <div class="page-head"><h1>仪表盘</h1><p>直播场次与报名情况总览。</p></div>
+        <div class="stat-grid" id="statGrid"></div>
+        <table>
+          <thead><tr><th>即将开始的场次</th><th>讲师</th><th>开始时间</th><th>名额</th></tr></thead>
+          <tbody id="upcomingSessionsBody"></tbody>
+        </table>
+      </section>
+
+      <section id="view-sessions" class="admin-view">
+        <div class="page-head"><h1>课程表管理</h1><p>添加、编辑或删除直播场次。</p></div>
+        <div class="table-toolbar">
+          <span></span>
+          <button class="btn btn-primary btn-sm" id="btnAddSession">+ 新增场次</button>
+        </div>
+        <table>
+          <thead><tr><th>场次标题</th><th>讲师</th><th>科目</th><th>开始时间</th><th>时长</th><th>报名/容量</th><th>价格</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody id="sessionsBody"></tbody>
+        </table>
+      </section>
+
+      <section id="view-enrollments" class="admin-view">
+        <div class="page-head"><h1>报名管理</h1><p>选择一个场次，查看已报名学生并标记签到状态。</p></div>
+        <div class="table-toolbar">
+          <select class="select-inline" id="enrollmentSessionSelect"></select>
+          <span></span>
+        </div>
+        <table>
+          <thead><tr><th>学生姓名</th><th>手机号</th><th>报名时间</th><th>签到状态</th><th>操作</th></tr></thead>
+          <tbody id="enrollmentsBody"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="sessionModalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="btnCloseSessionModal">&times;</button>
+      <h2 id="sessionModalTitle">新增场次</h2>
+      <div id="sessionModalMsg"></div>
+      <form id="sessionForm" novalidate>
+        <input type="hidden" id="sessionIdInput">
+        <div class="field"><label>场次标题</label><input id="sessionTitleInput" type="text" required></div>
+        <div class="field-row">
+          <div class="field"><label>讲师</label><select id="sessionTeacherInput" required></select></div>
+          <div class="field"><label>科目</label><input id="sessionSubjectInput" type="text" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>开始时间</label><input id="sessionStartInput" type="datetime-local" required></div>
+          <div class="field"><label>时长（分钟）</label><input id="sessionDurationInput" type="number" min="1" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>容量（人）</label><input id="sessionCapacityInput" type="number" min="1" required></div>
+          <div class="field"><label>价格（元，0 为免费）</label><input id="sessionPriceInput" type="number" min="0" required></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">保存</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+
+<footer style="margin:40px auto 16px;max-width:1100px;padding:16px 20px 0;border-top:1px solid var(--line,rgba(147,160,184,.18));text-align:center;color:var(--muted,#93A0B8);font-size:13px">精简开源演示 &middot; 完整版：<a href="https://inzyxuashop.com/jiaoyuzhibo-yuanma.html" target="_blank" rel="noopener" style="color:var(--cyan,#19B8D4);text-decoration:none">在线教育直播排课系统源码</a></footer>
+</body>
+</html>

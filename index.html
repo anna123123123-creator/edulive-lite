@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线教育直播排课系统（精简开源版）</title>
+<meta name="description" content="免费开源的在线教育直播排课系统精简版：真实场次报名与容量控制，讲师直播课表浏览、在线报名、满员自动锁定，后台课表与报名管理，纯前端+localStorage实现，可作为学习或二次开发起点。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">直播<span class="accent">课堂</span></div>
+    <a href="admin.html" class="nav-link">进入讲师后台 →</a>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>预约一场想上的直播课</h1>
+      <p>这是一个真实可用的精简开源系统：浏览讲师直播课表、查看剩余名额、在线报名，名额约满会自动锁定报名通道。数据保存在你浏览器本地。</p>
+    </div>
+    <div class="filter-row" id="subjectFilters"></div>
+    <div id="sessionGrid" class="session-grid"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+<footer style="margin:40px auto 16px;max-width:1100px;padding:16px 20px 0;border-top:1px solid var(--line,rgba(147,160,184,.18));text-align:center;color:var(--muted,#93A0B8);font-size:13px">精简开源演示 &middot; 完整版：<a href="https://inzyxuashop.com/jiaoyuzhibo-yuanma.html" target="_blank" rel="noopener" style="color:var(--cyan,#19B8D4);text-decoration:none">在线教育直播排课系统源码</a></footer>
+</body>
+</html>
